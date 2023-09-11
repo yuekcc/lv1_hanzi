@@ -22,9 +22,10 @@ const dict = await fs.readFile('../XDHYCD7th.txt', 'utf-8').then(text => text.sp
 
 const result = [];
 
-lv1Hanzis.forEach(hanzi => {
+lv1Hanzis.forEach((hanzi, index) => {
   const pinyin = hanziToPinyinMap[hanzi];
   result.push({
+    index,
     hanzi,
     pinyin,
     explanations: dict.filter(it => it.startsWith(`【${hanzi}】`)),
