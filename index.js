@@ -3,6 +3,8 @@ import HanziDb from './db';
 import { makeRandomNumberGenerator, speak } from './utils';
 import debounce from 'lodash.debounce';
 
+import './sql.js';
+
 const { div } = van.tags;
 
 const hanziCount = HanziDb.length;
