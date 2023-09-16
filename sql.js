@@ -1,8 +1,23 @@
-import { SqliteClient } from '@sqlite.org/sqlite-wasm';
+const worker = new Worker('/sql/worker.sql-wasm.js');
+worker.onmessage = evt => {
+  console.log('sqlite ready', evt.data);
+};
 
-const dbFile = '/hanzi.db';
-const sqlite = new SqliteClient(dbFile, '');
-await sqlite.init();
-
-const osList = await sqlite.executeSql(`select pos from hanzi`);
-console.log(`osList`, osList);
+fetch('/hanzi.db')
+  .then(res => res.arrayBuffer())
+  .then(buf => {
+    worker.postMessage({
+      id: 1,
+      action: 'open',
+      buffer: buf,
+    });
+  })
+  .then(() => {
+    setTimeout(() => {
+      worker.postMessage({
+        id: 2,
+        action: 'exec',
+        sql: `select * from sqlite_master where type = 'table'`,
+      });
+    }, 100);
+  });
