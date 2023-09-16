@@ -34,11 +34,15 @@ function addPinyinToHanziPos() {
   });
 
   Object.entries(pinyinToPosList).forEach(([pinyin, posList]) => {
-    db.run(`insert into pinyin_to_hanzi_pos (pinyin, pos_list) values (:pinyin, :pos_list)`, {
-      ':pinyin': pinyin,
-      ':pos_list': JSON.stringify(posList),
+    posList.forEach(pos => {
+      db.run(`insert into pinyin_to_hanzi_pos (pinyin, pos) values (:pinyin, :pos)`, {
+        ':pinyin': pinyin,
+        ':pos': pos,
+      });
     });
   });
 }
+
+addPinyinToHanziPos();
 
 db.close;
