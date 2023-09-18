@@ -39,7 +39,6 @@
     ]
   },
   "devDependencies": {
-    "@sqlite.org/sqlite-wasm": "3.43.0-build3",
     "@types/node": "^20.6.0",
     "eslint": "^8.48.0",
     "eslint-config-prettier": "^9.0.0",
@@ -53,6 +52,7 @@
     "vite": "^4.4.9"
   },
   "dependencies": {
+    "lodash.shuffle": "^4.2.0",
     "sql.js": "^1.8.0"
   }
 }
