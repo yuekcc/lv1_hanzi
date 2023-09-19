@@ -54,5 +54,9 @@
   "dependencies": {
     "lodash.shuffle": "^4.2.0",
     "sql.js": "^1.8.0"
-  }
+  },
+  "browserslist": [
+    "chrome 87",
+    "firefox 78"
+  ]
 }
