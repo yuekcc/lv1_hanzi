@@ -39,7 +39,7 @@ function openDatabase(buf) {
  * 通过 sql 查询数据
  * @param {string} sql
  * @param {object | null} params
- * @returns {{results: Array<{values: any[], columns: string[]}>}}
+ * @returns {{results: Array<{values: any[][], columns: string[]}>}}
  */
 export function queryBySql(sql, params = null) {
   return new Promise(resolve => {

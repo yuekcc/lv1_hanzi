@@ -17,6 +17,7 @@ blockquote,
 dl,
 dd {
   margin: 0;
+  padding: 0;
 }
 
 /* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
@@ -77,21 +78,26 @@ button,
 input,
 select,
 textarea {
-  font-weight: 300;
+  /* font-weight: 300; */
   font-size: 14px;
-  font-family: "LXGW WenKai Screen", sans-serif;
+  font-family: 'LXGW WenKai Screen', sans-serif;
 }
 
 .hanzi-container {
-  /* height: 100vh;/ */
+  position: relative;
   width: 100vw;
+  user-select: none;
 
   display: grid;
-  grid-template-rows: auto auto 1fr 5rem;
+  grid-template-rows: auto auto 1fr minmax(5rem, auto);
 
-  /* user-select: none; */
+
 
   & .top-bar {
+    position: sticky;
+    top: 0;
+    left: 0;
+
     display: grid;
     grid-template-columns: auto 1fr auto;
     height: 48px;
@@ -121,19 +127,34 @@ textarea {
     display: flex;
     justify-content: center;
 
-    font-size: 10rem;
+    font-size: 8rem;
     line-height: 1;
     padding: 2rem;
   }
 
-  & .explanation {
-    /* height: 100%; */
-    overflow-y: auto;
+  & .explanations {
     padding: 1rem;
 
     word-break: break-all;
     line-height: 2;
     font-size: 1.5rem;
+
+    & p[row-index='0'] {
+      font-size: 2rem;
+    }
+  }
+
+  & .pinyins {
+    padding: 1rem;
+    display: inline-flex;
+    font-size: 2rem;
+    gap: 12px;
+
+    & .tag {
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      padding: 6px 8px;
+    }
   }
 
   & .next-button {
