@@ -54,7 +54,7 @@ function PinyinList(list) {
     return div('');
   }
 
-  return list.map(pinyin => div({ class: 'tag' }, pinyin));
+  return list.map(pinyin => div({ class: 'tag', role: 'button' }, pinyin));
 }
 
 function ExplanationList(list) {
@@ -75,9 +75,9 @@ function ExplanationList(list) {
 function TopBar({ onRead, onLookup }) {
   return div(
     { class: 'top-bar' },
-    div({}, div({ class: 'btn', onclick: onLookup }, '查')),
+    div({}, div({ class: 'btn', role: 'button', onclick: onLookup }, '查')),
     div({ class: 'title' }, '一级汉字'),
-    div({}, div({ class: 'btn', onclick: onRead }, '读')),
+    div({}, div({ class: 'btn', role: 'button', onclick: onRead }, '读')),
   );
 }
 
@@ -86,7 +86,7 @@ function NextHanzi() {
     randomIndex.val += 1;
   };
 
-  return div({ class: 'next-button', onclick }, '下一个');
+  return div({ class: 'next-button', role: 'button', onclick }, '下一个');
 }
 
 const App = () => {
@@ -94,13 +94,8 @@ const App = () => {
     { class: 'hanzi-container', style: `height: 100vh; max-height: 100vh` },
 
     TopBar({ onRead, onLookup }),
-    () => div({ class: 'hanzi' }, displayHanzi.val.hanzi),
-    () =>
-      div(
-        { style: `overflow: auto` },
-        div({ class: 'explanations' }, ExplanationList(displayHanzi.val.explanations)),
-        div({ class: 'pinyins' }, PinyinList(displayHanzi.val.pinyins)),
-      ),
+    () => div({ class: 'hanzi-wrapper' }, div({ class: 'hanzi' }, displayHanzi.val.hanzi), div({ class: 'pinyins' }, PinyinList(displayHanzi.val.pinyins))),
+    () => div({ style: `overflow: auto` }, div({ class: 'explanations' }, ExplanationList(displayHanzi.val.explanations))),
     NextHanzi(),
   );
 };
