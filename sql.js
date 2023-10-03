@@ -1,4 +1,7 @@
-const worker = new Worker(import.meta.env.BASE_URL + '/sql/worker.sql-wasm.js');
+const DB_FILE_URL = import.meta.env.BASE_URL + 'sql/hanzi.db';
+const WORKER_FILE_URL = import.meta.env.BASE_URL + 'sql/worker.sql-wasm.js';
+
+const worker = new Worker(WORKER_FILE_URL);
 
 const nextId = (function () {
   let x = 0;
@@ -64,8 +67,7 @@ export function queryBySql(sql, params = null) {
 }
 
 export async function init() {
-  const url = import.meta.env.BASE_URL + '/hanzi.db';
-  const buf = await fetch(url).then(res => res.arrayBuffer());
+  const buf = await fetch(DB_FILE_URL).then(res => res.arrayBuffer());
 
   await openDatabase(buf);
   dbState.ready = true;
