@@ -4,6 +4,8 @@ import van from 'vanjs-core';
 import * as Db from './sql';
 import { speak } from './utils';
 
+import './style';
+
 const { div, p } = van.tags;
 
 async function queryHanziPosList() {
