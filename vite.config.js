@@ -1,7 +1,7 @@
 import { defineConfig } from 'vite';
 
 export default defineConfig({
-  base: process.env.NODE_ENV === 'production' ? '/lv1_hanzi' : '/',
+  base: process.env.NODE_ENV === 'production' ? '/lv1_hanzi/' : '/',
   publicDir: 'public',
   build: {
     target: 'esnext',

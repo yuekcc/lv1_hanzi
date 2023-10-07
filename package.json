@@ -12,7 +12,7 @@
   "prettier": {
     "arrowParens": "avoid",
     "endOfLine": "auto",
-    "printWidth": 160,
+    "printWidth": 110,
     "quoteProps": "consistent",
     "semi": true,
     "singleQuote": true,

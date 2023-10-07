@@ -66,7 +66,7 @@ export function queryBySql(sql, params = null) {
   });
 }
 
-export async function init() {
+async function init() {
   const buf = await fetch(DB_FILE_URL).then(res => res.arrayBuffer());
 
   await openDatabase(buf);
@@ -76,3 +76,5 @@ export async function init() {
     dbState.callbacksBeforeReady.forEach(cb => cb());
   }
 }
+
+await init();
