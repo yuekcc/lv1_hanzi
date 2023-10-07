@@ -26,7 +26,7 @@ export function TopBar({ onLookup, inputs }) {
     div(
       { class: 'search' },
       input({
-        placeholder: '查找汉字，只支持单字或拼音',
+        placeholder: '查字或查用拼音查字',
         value: () => inputs.val,
         oninput: onInput,
         onkeyup: onKeyup,
