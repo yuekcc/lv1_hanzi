@@ -3,19 +3,17 @@ const { div, input } = van.tags;
 
 export function TopBar({ onLookup, inputs }) {
   const onInput = e => {
-    if (e.isComposing) {
-      return;
-    }
-
     inputs.val = e.target.value;
+    // console.log('onInput, set inputs.val =', inputs.val);
   };
 
   const onKeyup = e => {
+    // console.log('onKeyup', e.isComposing, e.keyCode);
     if (e.isComposing || e.keyCode === 229) {
       return;
     }
 
-    if (e.key === 'Enter') {
+    if (e.keyCode === 13) {
       onLookup(inputs.val);
     }
   };

@@ -5,7 +5,7 @@ import { ExplanationList } from './components/ExplanationList';
 
 import { speak, queryHanziByPos, queryHanziPosList } from './utils';
 
-const { div, p } = van.tags;
+const { div } = van.tags;
 
 const posList = await queryHanziPosList();
 
@@ -33,7 +33,7 @@ function NextHanzi() {
     randomIndex.val += 1;
   };
 
-  return div({ class: 'next-button', role: 'button', onclick }, '下一个');
+  return div({ class: 'next-button primary', role: 'button', onclick }, '下一个');
 }
 
 export const RandomHanzi = ({ current, findHanziByPinyin }) => {

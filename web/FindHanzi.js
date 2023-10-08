@@ -9,7 +9,7 @@ export function FindHanzi({ keyword, onShowDetail }) {
     hanziList.val = list;
   });
 
-  return div({}, () =>
+  return div({}, div({ class: 'info-text' }, '点击选择'), () =>
     div(
       { class: 'search-result' },
       hanziList.val.map(info => {
