@@ -1,6 +1,6 @@
 import fs from 'fs/promises';
 
-const lv1Hanzis = await fs.readFile('../level-1.txt', 'utf-8').then(doc => doc.split('\n'));
+const lv1Hanzis = await fs.readFile('../level-2.txt', 'utf-8').then(doc => doc.split('\n'));
 
 const hanziToPinyinMap = await fs
   .readFile('../8105无字频.dict.yaml', 'utf-8')
@@ -25,11 +25,11 @@ const result = [];
 lv1Hanzis.forEach((hanzi, index) => {
   const pinyin = hanziToPinyinMap[hanzi];
   result.push({
-    index,
+    index: 3501 + index,
     hanzi,
     pinyin,
     explanations: dict.filter(it => it.startsWith(`【${hanzi}】`)),
   });
 });
 
-await fs.writeFile('../../hanzi_lv1.js', JSON.stringify(result, null, 2), 'utf-8');
+await fs.writeFile('../../hanzi_lv2.js', JSON.stringify(result, null, 2), 'utf-8');
