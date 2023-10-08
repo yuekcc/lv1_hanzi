@@ -1,4 +1,4 @@
-[
+export default [
   {
     "index": 3501,
     "hanzi": "乂",

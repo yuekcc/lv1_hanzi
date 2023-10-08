@@ -1,4 +1,4 @@
-[
+export default [
   {
     "index": 0,
     "hanzi": "一",
@@ -36757,10 +36757,5 @@
     "explanations": [
       "【矗】chù直立；高耸：～立。"
     ]
-  },
-  {
-    "index": 3500,
-    "hanzi": "",
-    "explanations": []
   }
 ]

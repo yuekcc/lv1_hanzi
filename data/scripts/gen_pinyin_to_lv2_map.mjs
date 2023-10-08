@@ -32,4 +32,4 @@ lv1Hanzis.forEach((hanzi, index) => {
   });
 });
 
-await fs.writeFile('../../hanzi_lv2.js', JSON.stringify(result, null, 2), 'utf-8');
+await fs.writeFile('../../hanzi_lv2.js', `export default ${JSON.stringify(result, null, 2)}`, 'utf-8');
