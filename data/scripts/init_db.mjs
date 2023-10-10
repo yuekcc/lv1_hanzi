@@ -1,6 +1,6 @@
 import sqlite3 from 'node-sqlite3-wasm';
 
-const DB_FILE = '../../hanzi.db';
+const DB_FILE = '../../hanzi.sqlite3';
 const db = new sqlite3.Database(DB_FILE);
 const result = db.all(`select sqlite_version() as version`);
 console.log(result);

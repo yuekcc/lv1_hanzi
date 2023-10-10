@@ -1,4 +1,4 @@
-const DB_FILE_URL = import.meta.env.BASE_URL + 'sql/hanzi.db';
+const DB_FILE_URL = import.meta.env.BASE_URL + 'sql/hanzi.sqlite3';
 const WORKER_FILE_URL = import.meta.env.BASE_URL + 'sql/worker.sql-wasm.js';
 
 const worker = new Worker(WORKER_FILE_URL);
